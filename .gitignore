@@ -124,3 +124,7 @@ local.properties
 .scala_dependencies
 .worksheet
 
+*.txt
+warsztaty-java-1.iml
+*.iml
+*.xml
