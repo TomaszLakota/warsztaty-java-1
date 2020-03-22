@@ -6,25 +6,25 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Zadanie2{
+public class Zadanie2 {
 
-    public static void playGame(){
+    public static void playGame() {
         int n, random;
         List<Integer> userNumbers = new ArrayList<>();
         List<Integer> randomNumbers = new ArrayList<>();
 
-        while(randomNumbers.size()<6) {
-            random = ThreadLocalRandom.current().nextInt(1, 49+1);
-            if(!randomNumbers.contains(random)){
+        while (randomNumbers.size() < 6) {
+            random = ThreadLocalRandom.current().nextInt(1, 49 + 1);
+            if (!randomNumbers.contains(random)) {
                 randomNumbers.add(random);
             }
         }
 
-        while(userNumbers.size()<6){
-            n = getIntFromUser(1,49);
-            if(userNumbers.contains(n)){
+        while (userNumbers.size() < 6) {
+            n = getIntFromUser(1, 49);
+            if (userNumbers.contains(n)) {
                 System.out.println("Ta liczba już była");
-            }else{
+            } else {
                 userNumbers.add(n);
             }
         }
@@ -38,28 +38,28 @@ public class Zadanie2{
         System.out.println(randomNumbers.toString());
         int correctGuesses = 0;
         for (int i = 0; i < 6; i++) {
-            if(userNumbers.contains(randomNumbers.get(i))){
+            if (userNumbers.contains(randomNumbers.get(i))) {
                 correctGuesses++;
             }
         }
-        if(correctGuesses<3){
+        if (correctGuesses < 3) {
             System.out.println("Przegrałeś");
-        }else{
+        } else {
             System.out.println("Trafiłeś " + correctGuesses);
         }
     }
 
-    public static int getIntFromUser(int min, int max){
+    public static int getIntFromUser(int min, int max) {
         Scanner sn = new Scanner(System.in);
         boolean correct = false;
         int n = 0;
         while (!correct) {
             try {
-                System.out.println("Podaj liczbę z zakresu od "+min+" do "+max);
+                System.out.println("Podaj liczbę z zakresu od " + min + " do " + max);
                 n = sn.nextInt();
-                if(n>=min && n<=max) {
+                if (n >= min && n <= max) {
                     correct = true;
-                }else{
+                } else {
                     System.out.println("nie zawiera się w przedziale");
                 }
             } catch (Exception e) {
@@ -69,8 +69,8 @@ public class Zadanie2{
         }
         return n;
     }
+
     public static void main(String[] args) {
-        // write your code here
         playGame();
     }
 }
